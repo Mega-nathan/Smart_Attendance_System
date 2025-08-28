@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Added</title>
+</head>
+<body>
+    <h2>Student "{{ student.name }}" Added Successfully!</h2>
+
+    <p><strong>Name:</strong> {{ student.name }}</p>
+
+    {% if student.face_image %}
+        <p><strong>Face Image:</strong></p>
+        <img src="{{ student.face_image.url }}" alt="Face" width="150">
+    {% endif %}
+
+    {% if qr_code %}
+        <p><strong>QR Code:</strong></p>
+        <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+
+    {% endif %}
+
+    <br>
+    
+</body>
+</html>
