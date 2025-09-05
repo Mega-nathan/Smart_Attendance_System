@@ -14,6 +14,8 @@ import numpy as np
 
 # Create your views here.
 
+
+# creating the new staff
 def addStaff(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -34,6 +36,7 @@ def addStaff(request):
     return render(request, "index.html")
 
 
+# staff can login here
 def staff_login(request):
 
     if request.method == "POST":
@@ -56,6 +59,7 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 
+# logout your user
 def staff_logout(request):
     logout(request)
     return redirect('staff_login')
