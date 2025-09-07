@@ -1,4 +1,4 @@
-import base64
+import base64 # for encrypting the image
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User 
 from .models import Staff
@@ -6,10 +6,10 @@ from student.models import Student
 from student.forms import StudentForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
+from django.contrib import messages 
 
-import face_recognition
-from PIL import Image , UnidentifiedImageError
+import face_recognition # this package is not working properly
+from PIL import Image , UnidentifiedImageError 
 import numpy as np
 
 # Create your views here.
@@ -54,16 +54,19 @@ def staff_login(request):
 
     return render(request, 'login.html')
 
+#interactive dashboard for staffs to see the statistics of their students attendance
 @login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
 
 
-# logout your user
+# logout staff
 def staff_logout(request):
     logout(request)
     return redirect('staff_login')
 
+
+#add student along with generate QR and store vectors for that particular student 
 @login_required
 def add_student(request):
     if request.method == "POST":
@@ -108,6 +111,7 @@ def add_student(request):
     
     return render(request, 'add_student.html', {'form': form})
 
+# list of students 
 @login_required
 def student_list(request):
     students = Student.objects.all()
