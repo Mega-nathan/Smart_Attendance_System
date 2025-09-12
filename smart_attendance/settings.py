@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import os 
+import os  # os imported for template rendering 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -57,8 +57,8 @@ ROOT_URLCONF = 'smart_attendance.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'staff','templates'),
-                 os.path.join(BASE_DIR,'student','templates'),
+        'DIRS': [os.path.join(BASE_DIR,'staff','templates'), # templates for staffs
+                 os.path.join(BASE_DIR,'student','templates'), # templates for students
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'smart_attendance.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3', # used sqlite3 for developing simple prototype
         'NAME': 'example.db',
     }
 }
@@ -120,8 +120,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
+STATIC_URL = 'static/' # static url
+MEDIA_URL = '/media/' # media url
 MEDIA_ROOT = 'media'
 
 
